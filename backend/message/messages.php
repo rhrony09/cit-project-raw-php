@@ -26,6 +26,9 @@ require_once("../includes/navbar.php");
                             <tbody>
                                 <?php foreach ($query as $message) : ?>
                                     <tr>
+                                        <td width="4%" class="valign-middle text-right">
+                                            <i class="far fa-comment-alt"></i>
+                                        </td>
                                         <td class="valign-middle">
                                             <a href="message_view.php?id=<?= $message['id'] ?>">
                                                 <p class="mg-b-0">
@@ -34,7 +37,7 @@ require_once("../includes/navbar.php");
                                                 </p>
                                             </a>
                                         </td>
-                                        <td class="valign-middle">Nov 5, 2017</td>
+                                        <td class="valign-middle"><?= date('h:i:s A | d F Y', strtotime($message['time'])) ?></td>
                                         <td class="valign-middle"><button type="button" class="btn btn-sm btn-danger rounded-circle delete" data-id="<?= $message['id'] ?>"><i class="fas fa-trash"></i></button></td>
                                     </tr>
                                 <?php endforeach; ?>

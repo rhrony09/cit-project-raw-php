@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once('../../assets/db.php');
+require_once('../../assets/functions.php');
 if (isset($_POST['send'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -15,7 +16,8 @@ if (isset($_POST['send'])) {
         header('location:../../index.php#contact');
     } else {
         $message = mysqli_real_escape_string($conn, $message);
-        $sql = "INSERT INTO messages(name,email,message) VALUES('$name','$email','$message')";
+        $date = date('Y-m-d H:i:s');
+        $sql = "INSERT INTO messages(name,email,message, time) VALUES('$name','$email','$message','$date')";
         if (mysqli_query($conn, $sql)) {
             unset($_SESSION['name'], $_SESSION['email'], $_SESSION['message']);
             $_SESSION['success'] = "Message Sent Successfully";

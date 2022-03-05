@@ -20,6 +20,10 @@ $id = $_GET['id'];
 $sql_portfolio = "SELECT * FROM portfolios LEFT JOIN users ON portfolios.user_id = users.id WHERE portfolios.id = $id";
 $query_portfolio = mysqli_query($conn, $sql_portfolio);
 $portfolio = mysqli_fetch_assoc($query_portfolio);
+//site setting
+$sql_site_setting = "SELECT * FROM site_setting";
+$query_site_setting = mysqli_query($conn, $sql_site_setting);
+$setting = mysqli_fetch_assoc($query_site_setting);
 
 if (mysqli_num_rows($query_portfolio) <= 0) {
     $_SESSION['error'] = "Portfolio not found";
