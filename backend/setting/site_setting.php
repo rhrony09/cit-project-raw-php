@@ -25,7 +25,6 @@ require_once("../includes/navbar.php");
                         <table class="table table-bordered align-middle text-center">
                             <thead class="bg-info">
                                 <tr>
-                                    <th class="text-center">Serial</th>
                                     <th class="text-center">Icon</th>
                                     <th class="text-center">Site Name</th>
                                     <th class="text-center">Site Tagline</th>
@@ -35,7 +34,6 @@ require_once("../includes/navbar.php");
                             <tbody>
                                 <?php foreach ($query as $key => $setting) : ?>
                                     <tr>
-                                        <td><?= ++$key ?></td>
                                         <td><img style="max-width: 40px;" src="<?= url() ?>assets/dashboard/images/site/<?= $setting['icon'] ?>" alt="site icon"></td>
                                         <td><?= $setting['name'] ?></td>
                                         <td><?= $setting['tagline'] ?></td>

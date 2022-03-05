@@ -8,15 +8,16 @@ function show_session_data($data) {
     }
 }
 
-
-function url() {
-    $path = realpath(dirname(__FILE__));
+function url($x = '') {
     $directory = explode('/', dirname($_SERVER['PHP_SELF']));
-    $url = 'http://' . $_SERVER['HTTP_HOST'] . '/' . str_replace('\\', '/', str_replace($path, '', $directory[1]));
+    $url = $_SERVER['HTTP_HOST'] . '/' . $directory[1] . '/';
+    $url = str_replace('//', '/', $url);
     if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
-        $url = str_replace('http://', 'https://', $url);
+        $url = 'https://' . $url;
+    } else {
+        $url = 'http://' . $url;
     }
-    return $url . '/';
+    return $url . $x;
 }
 
 function print_admin_role() {
@@ -29,5 +30,18 @@ function print_admin_role() {
         return 'Super Admin';
     } else {
         return 'User';
+    }
+}
+
+function greetings() {
+    $Hour = date('G');
+    if ($Hour >= 5 && $Hour <= 11) {
+        return "Good Morning";
+    } elseif ($Hour >= 12 && $Hour <= 14) {
+        return "Good Noon";
+    } else if ($Hour >= 15 && $Hour <= 18) {
+        return "Good Afternoon";
+    } else if ($Hour >= 19 || $Hour <= 4) {
+        return "Good Evening";
     }
 }
