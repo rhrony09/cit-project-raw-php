@@ -28,7 +28,7 @@ $message_query = mysqli_query($conn, $message_sql);
         </nav>
         <div class="navicon-right">
             <a id="btnRightMenu" href="" class="pos-relative">
-                <i class="icon ion-ios-bell-outline"></i>
+                <i class="far fa-comment-alt tx-18"></i>
                 <!-- start: if statement -->
                 <?php if (mysqli_num_rows($message_query) > 0) : ?>
                     <span class="square-8 bg-danger"></span>
