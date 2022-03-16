@@ -1,5 +1,5 @@
 <!-- ########## START: LEFT PANEL ########## -->
-<div class="sl-logo"><a href="">RH Rony</a></div>
+<div class="sl-logo"><a href="<?= url(); ?>">RH Rony</a></div>
 <div class="sl-sideleft">
 
     <label class="sidebar-label">Navigation</label>

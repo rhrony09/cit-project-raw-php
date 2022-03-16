@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once('assets/db.php');
 require_once('assets/functions.php');
 if (isset($_SESSION['admin'])) {
     header('location:backend/dashboard.php');
@@ -13,7 +14,7 @@ require_once('backend/includes/header.php');
 <div class="d-flex align-items-center justify-content-center bg-sl-primary ht-100v">
 
     <div class="login-wrapper wd-300 wd-xs-350 pd-25 pd-xs-40 bg-white">
-        <div class="signin-logo tx-center tx-24 tx-bold tx-inverse">RH Rony</div>
+        <div class="signin-logo tx-center tx-24 tx-bold tx-inverse"><?= $setting['name'] ?></div>
         <div class="tx-center mg-b-60">Login to access dashboard</div>
 
         <form action="login_process.php" method="POST">
